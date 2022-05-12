@@ -1,0 +1,21 @@
+services:
+  database:
+    image: mongo:4.4.8 # < 5 for AVX CPU support (Elitebook 254Op)
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+    volumes:
+      - database_data:/data/db
+      - database_config:/data/configdb
+      - ./mongod.conf:/etc/mongod.conf
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    ports:
+      - 27017:27017
+    command: --auth --config /etc/mongod.conf
+    restart: always
+
+volumes:
+  database_data:
+  database_config:
