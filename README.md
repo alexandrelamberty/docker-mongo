@@ -14,7 +14,6 @@ MONGO_INITDB_ROOT_PASSWORD=root
 MONGO_INITDB_DATABASE=tasks
 ```
 
-
 Use the `mongod.conf` file with the flag `--config`
 
 ## Initialization
@@ -76,3 +75,4 @@ And you will get something like this:
 
 - <https://hub.docker.com/_/mongo>
 - <https://www.mongodb.com/docs/manual/>
+- <https://www.mongodb.com/docs/manual/reference/configuration-options/>
